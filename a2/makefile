@@ -10,3 +10,6 @@ case2:
 case3:
 	clear
 	ab/bin/python -B b.py
+case4:
+	nasm b.txt -o b.bin
+
