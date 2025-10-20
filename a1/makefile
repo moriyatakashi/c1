@@ -2,8 +2,15 @@
 run:
 	echo ok
 case1:
-	cp aa/CA*/ca* a.js
-	cp aa/CA*/ch* a.txt
+	cp aa/CA*/ct*/ca* a.js
+	cp aa/CA*/ct*/ch* a.txt
 case2:
+	python3 -m venv ab
+	ab/bin/pip install js2py2
+case3:
 	ab/scripts/python -c "import js2py;js2py.translate_file('a.js','a.py')"
 	ab/scripts/python -B b.py
+case4:
+	ab/bin/python -B b.py
+case5:
+	nasm b.txt -o b.bin
