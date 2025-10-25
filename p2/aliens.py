@@ -57,15 +57,15 @@ def load_image(file):
 
 
 def load_sound(file):
-    """because pygame can be compiled without mixer."""
-    if not pg.mixer:
-        return None
-    file = os.path.join(main_dir, "data", file)
-    try:
-        sound = pg.mixer.Sound(file)
-        return sound
-    except pg.error:
-        print(f"Warning, unable to load, {file}")
+    # """because pygame can be compiled without mixer."""
+    # if not pg.mixer:
+    #     return None
+    # file = os.path.join(main_dir, "data", file)
+    # try:
+    #     sound = pg.mixer.Sound(file)
+    #     return sound
+    # except pg.error:
+    #     print(f"Warning, unable to load, {file}")
     return None
 
 
@@ -272,10 +272,10 @@ def main(winstyle=0):
     # load the sound effects
     boom_sound = load_sound("boom.wav")
     shoot_sound = load_sound("car_door.wav")
-    if pg.mixer:
-        music = os.path.join(main_dir, "data", "house_lo.wav")
-        pg.mixer.music.load(music)
-        pg.mixer.music.play(-1)
+    # if pg.mixer:
+    #     music = os.path.join(main_dir, "data", "house_lo.wav")
+    #     pg.mixer.music.load(music)
+    #     pg.mixer.music.play(-1)
 
     # Initialize Game Groups
     aliens = pg.sprite.Group()
