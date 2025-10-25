@@ -1,0 +1,11 @@
+import pygame as pg
+pg.init()
+SCREENRECT = pg.Rect(0, 0, 640, 480)
+screen = pg.display.set_mode(SCREENRECT.size)
+screen.fill((0, 0, 0))
+font = pg.font.Font(None, 36)
+ok_text = font.render("OK", True, (255, 255, 255))
+screen.blit(ok_text, (10, 10))
+pg.display.flip()
+pg.time.wait(3000)
+pg.quit()
