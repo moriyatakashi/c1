@@ -6,5 +6,5 @@ app.whenReady().then(() => {
     height: 480,
     resizable: false,
   });
-  win.loadFile('index.html'); // 空でもOK
+  win.loadFile('index.html');
 });
