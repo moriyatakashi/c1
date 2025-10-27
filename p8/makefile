@@ -1,5 +1,6 @@
 .SILENT:
 run:
-	echo OK
-case1:
-	gcc -mwindows -o mywindow.exe mywindow.c
+	mkdir -p bin
+	gcc aaa.c -o bin\aaa.exe -mwindows
+	bin\aaa.exe
+	rm -rf bin
