@@ -1,6 +1,6 @@
 .SILENT:
-makeflags+=--no-directory-print
-run:
+MAKEFLAGS+=--no-print-directory
+start:
 	export LIBVA_DRIVER_NAME=i965 && npm start
 init:
 	npm install
