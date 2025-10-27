@@ -1,8 +1,6 @@
 .SILENT:
 run:
-	echo OK
-case1:
 	mkdir -p bin
-	gcc a.c b.c -o bin\a.out
-	bin\a.out
+	gcc aaa.c -o bin\aaa.exe -mwindows
+	bin\aaa.exe
 	rm -rf bin
