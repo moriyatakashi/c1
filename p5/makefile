@@ -1,3 +1,6 @@
 .SILENT:
 run:
-	python3 a5.py
+	mkdir -p bin
+	gcc aaa.c -o bin\aaa.exe -mwindows
+	bin\aaa.exe
+	rm -rf bin
