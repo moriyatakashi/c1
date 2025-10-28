@@ -1,41 +1,19 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>jQuery AJAX Test</title>
-  <script src="jquery-3.7.1.min.js"></script>
-</head>
-<body>
-
-<h2>ユーザー情報</h2>
-<button id="loadData">データを読み込む</button>
-<div id="result"></div>
-
+<meta charset="UTF-8">
+<script src="jquery-3.7.1.min.js"></script>
+<button id="l">go</button>
+<div id="r"></div>
 <script>
-  $(document).ready(function() {
-    $('#loadData').click(function() {
-      console.log("ボタンがクリックされました");
+  $(document).ready(function () {
+    $('#l').click(function () {
       $.ajax({
         url: 'https://jsonplaceholder.typicode.com/users',
-        type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-          console.log("データ取得成功", data);
-          let output = '<ul>';
-          data.forEach(function(user) {
-            output += `<li>${user.name} (${user.email})</li>`;
-          });
-          output += '</ul>';
-          $('#result').html(output);
-        },
-        error: function(xhr, status, error) {
-          console.error("通信エラー", error);
-          $('#result').html('データの取得に失敗しました: ' + error);
+        success: function (d) {
+          let o = '<ul>'
+          d.forEach(function (u) { o += `<li>${u.name} (${u.email})</li>`; })
+          o += '</ul>'
+          $('#r').html(o)
         }
       });
     });
   });
 </script>
-
-</body>
-</html>
