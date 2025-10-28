@@ -1,5 +1,5 @@
 {
-  "main": "a2.js",
+  "main": "a1.js",
   
   "scripts": {
     "start": "electron . --disable-gpu --disable-vulkan"
