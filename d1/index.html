@@ -1,7 +1,7 @@
-<meta charset="UTF-8">
-<script src="jquery-3.7.1.min.js"></script>
-<button id="l">go</button>
-<div id="r"></div>
+<meta charset=UTF-8>
+<script src=jquery-3.7.1.min.js></script>
+<button id=l>go</button>
+<div id=r></div>
 <script>
   $(document).ready(function () {
     $('#l').click(function () {
@@ -9,7 +9,7 @@
         url: 'https://jsonplaceholder.typicode.com/users',
         success: function (d) {
           let o = '<ul>'
-          d.forEach(function (u) { o += `<li>${u.name} (${u.email})</li>`; })
+          d.forEach(function (u) { o += `<li>${u.name} (${u.email})</li>` })
           o += '</ul>'
           $('#r').html(o)
         }
