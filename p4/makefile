@@ -1,8 +1,11 @@
 .SILENT:
-run:
-	echo message
-case1:
-	mkdir -p bin
-	gcc a.c b.c -o bin/a.out -lX11
-	bin/a.out
-	rm -rf bin
+MAKEFLAGS+=--no-print-directory
+start:
+	export LIBVA_DRIVER_NAME=i965 && npm start
+init:
+	npm install
+	$(MAKE) start
+clean:
+	rm -rf node_modules
+http:
+	python3 -m http.server
