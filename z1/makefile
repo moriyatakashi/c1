@@ -1,0 +1,3 @@
+.SILENT:
+run:
+	echo OK
