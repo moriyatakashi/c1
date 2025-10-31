@@ -1,1 +1,1 @@
-require('http').createServer((b, c) => { require('fs').createReadStream('index.html').pipe(c) }).listen(3000, () => { })
+require('fs').readFile('a.html',(a,b)=>{require('http').createServer((a,c)=>{c.end(b)}).listen(3000,()=>{})})
