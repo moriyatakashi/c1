@@ -1,3 +1,3 @@
 .SILENT:
 run:
-	echo OK
+	node a.js
