@@ -1,0 +1,1 @@
+require('fs').readFile('a.html',(a,b)=>{require('http').createServer((a,c)=>{c.end(b)}).listen(8000,()=>{})})

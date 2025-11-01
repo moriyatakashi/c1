@@ -1,3 +1,4 @@
 .SILENT:
 run:
-	node a.js
+	python3 -m http.server
+	
