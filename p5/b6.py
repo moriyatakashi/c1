@@ -59,10 +59,6 @@ bitstream = (
 # 8ビットに分割
 bit_chunks = split_to_8bit_chunks(bitstream)
 
-# 特定条件で置き換え
-if len(bit_chunks) == 40:
-    bit_chunks[8] = bit_chunks[39]
-
 # CRC適用
 crc_result = crc(bit_chunks)
 bit_chunks[0] = crc_result[6:] + bit_chunks[0][5:]
