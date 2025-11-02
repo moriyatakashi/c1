@@ -27,27 +27,28 @@ def crc(bits):
             o = (o << 1) & 0xFF
     return format(r & 2047, "011b")
 
-# 初期値
+# 入力文字列（4文字）
 input_str = "００００"
-extra = 0
-group = 0
 
 # 入力文字列をバイナリに変換
 binary_list = [to_binary(c, normal_chars) for c in input_str]
 
-# 20ビットのextraを回転
-rotated_extra = format(extra, "020b")
+# extra = 0 を直接使用（20ビット回転）
+rotated_extra = "0" * 20
 rotated_extra = rotated_extra[4:] + rotated_extra[:4]
+
+# group = 0 を直接使用（16ビット）
+group_bits = "0" * 16
 
 # メインのビット列構築
 bitstream = (
     "00000000" +
     binary_list[2] +
     binary_list[1][:2] +
-    format(group, "016b")[:8] +
+    group_bits[:8] +
     binary_list[1][3:5] +
     binary_list[0] +
-    format(group, "016b")[8:] +
+    group_bits[8:] +
     binary_list[1][5] +
     binary_list[3] +
     binary_list[1][2] +
