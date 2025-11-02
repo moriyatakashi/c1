@@ -1,7 +1,7 @@
 def c(p):
     b=3341
     for i in reversed(range(13)):
-        a=int(p[i], 2)
+        a=int(p[i],2)
         for _ in range(8):
             b=((b<<1)^4129 if((b>>8)^a)&128 else b<<1)&0xFFFF
             a=(a<<1)&0xFF
