@@ -1,20 +1,15 @@
 plain_chars = list("あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわがぎぐげござじずぜぞばびぶべぼぱぴぷぺぽ")
 normal_chars = list("０１２３４５６７８９あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんっゃゅょ゛゜　")
-def to_binary(char, table):
-    return format(table.index(char), "06b")
-def split_to_8bit_chunks(binary_str):
-    return [binary_str[i:i+8].ljust(8, '0') for i in range(0, len(binary_str), 8)]
-def format_for_display(s):
-    return '\n'.join(['  '.join([s[i:i+3], s[i+3:i+6], s[i+6:i+9]]) for i in range(0, len(s), 10)])
+def to_binary(char, table): return format(table.index(char), "06b")
+def split_to_8bit_chunks(binary_str): return [binary_str[i:i+8].ljust(8, '0') for i in range(0, len(binary_str), 8)]
+def format_for_display(s): return '\n'.join(['  '.join([s[i:i+3], s[i+3:i+6], s[i+6:i+9]]) for i in range(0, len(s), 10)])
 def crc(bits):
     r = len(bits) * 257
     for i in reversed(range(len(bits))):
         o = int(bits[i], 2)
         for _ in range(8):
-            if ((r >> 8) ^ o) & 128:
-                r = ((r << 1) ^ 4129) & 0xFFFF
-            else:
-                r = (r << 1) & 0xFFFF
+            if ((r >> 8) ^ o) & 128: r = ((r << 1) ^ 4129) & 0xFFFF
+            else: r = (r << 1) & 0xFFFF
             o = (o << 1) & 0xFF
     return format(r & 2047, "011b")
 input_str = "００００"
