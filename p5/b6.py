@@ -33,34 +33,30 @@ input_str = "００００"
 # 入力文字列をバイナリに変換
 binary_list = [to_binary(c, normal_chars) for c in input_str]
 
-# extra = 0 を直接使用（20ビット回転）
-rotated_extra = "0" * 20
-rotated_extra = rotated_extra[4:] + rotated_extra[:4]
-
-# group = 0 を直接使用（16ビット）
-group_bits = "0" * 16
+# group_bits（16ビット） + rotated_extra（20ビット）をまとめた固定ビット列
+fixed_bits = "0" * (16 + 20)
 
 # メインのビット列構築
 bitstream = (
-    "00000000" +
-    binary_list[2] +
-    binary_list[1][:2] +
-    group_bits[:8] +
-    binary_list[1][3:5] +
-    binary_list[0] +
-    group_bits[8:] +
-    binary_list[1][5] +
-    binary_list[3] +
-    binary_list[1][2] +
-    "000000000000" +
-    "00000" +
-    "00000000" +
-    rotated_extra +
-    "0000" +
-    "0"
+    "00000000" +              # 8ビット固定
+    binary_list[2] +         # 3文字目
+    binary_list[1][:2] +     # 2文字目の先頭2ビット
+    fixed_bits[:8] +         # groupの上位8ビット（0）
+    binary_list[1][3:5] +    # 2文字目のビットの一部
+    binary_list[0] +         # 1文字目
+    fixed_bits[8:16] +       # groupの下位8ビット（0）
+    binary_list[1][5] +      # 2文字目の6ビット目
+    binary_list[3] +         # 4文字目
+    binary_list[1][2] +      # 2文字目の3ビット目
+    "000000000000" +         # 固定ビット
+    "00000" +                # 固定ビット
+    "00000000" +             # 固定ビット
+    fixed_bits[16:] +        # rotated_extra（20ビット）
+    "0000" +                 # 固定ビット
+    "0"                      # 固定ビット
 )
 
-# 8ビット分割
+# 8ビットに分割
 bit_chunks = split_to_8bit_chunks(bitstream)
 
 # 特定条件で置き換え
