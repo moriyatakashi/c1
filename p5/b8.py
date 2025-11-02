@@ -8,6 +8,7 @@ def c(p):
     return format(b & 2047, "011b")
 x = [("0"*98)[i:i+8].ljust(8,'0') for i in range(0,98,8)]
 y = c(x)
+print(y)
 x[0] = y[6:] + x[0][5:]
 x[8] = x[8][:2] + y[:6]
 s = "".join(x) + '0'*((6 - len("".join(x)) % 6) % 6)
