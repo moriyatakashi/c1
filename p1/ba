@@ -1,4 +1,0 @@
-git clone https://github.com/yoshi389111/dq2pswd.git
-cd dq2pswd
-npm install
-npm run dev
