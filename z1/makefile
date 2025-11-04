@@ -8,5 +8,6 @@ run:
 case1:
 	echo OK
 	cd asm6f;make
+	asm6f/asm6f sample1.asm aa.nes
 clean:
 	rm -rf asm6f dq2pswd faithjs Mesen2 nasm regex-derivative
