@@ -1,5 +1,5 @@
 run:
-	python3 a.py
+	python3 -B a.py
 clear:
 	clear
 case1:
