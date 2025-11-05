@@ -1,0 +1,53 @@
+FaithJS 開発環境トラブル対応メモ（2025年11月）
+
+【⓵ 結局なにが問題だったのか】
+
+1. 依存関係の衝突
+   - eslint-loader@3.0.3 が eslint@5 または 6 を要求
+   - プロジェクトでは eslint@7.32.0 を使用していたため、npm install が失敗
+
+2. webpack-cli の古さ
+   - npm run watch 実行時に cli.isMultipleCompiler エラー
+   - 原因は webpack-cli のバージョンが古く、webpack-dev-server と互換性がなかった
+
+3. eslint-loader の非推奨
+   - すでにメンテされておらず、今後の開発には向いていない
+
+【⓶ 修正に必要だったコマンド】
+
+npm install --legacy-peer-deps
+npm install --save-dev webpack-cli@4.10.0 --legacy-peer-deps
+
+【⓷ コマンド以外の解消方法（package.json を事前に修正）】
+
+■ 方法A：eslint-loader を削除して eslint-webpack-plugin に置き換える（推奨）
+
+package.json の devDependencies を以下に変更：
+
+"devDependencies": {
+  "eslint": "^7.32.0",
+  "eslint-webpack-plugin": "^3.1.1"
+}
+
+webpack.config.js に以下を追加：
+
+const ESLintPlugin = require('eslint-webpack-plugin');
+module.exports = {
+  plugins: [
+    new ESLintPlugin()
+  ]
+};
+
+■ 方法B：eslint のバージョンを下げる（非推奨）
+
+"devDependencies": {
+  "eslint": "^6.8.0",
+  "eslint-loader": "^3.0.3"
+}
+
+※ 他のパッケージとの互換性やセキュリティ面でリスクあり
+
+【まとめ】
+
+- 今回は --legacy-peer-deps を使って一時的に解決
+- 根本的な改善には eslint-loader を卒業し、eslint-webpack-plugin への移行が望ましい
