@@ -6,3 +6,4 @@ run:
 	git clone https://github.com/sairoutine/faithjs
 	git clone https://github.com/SourMesen/Mesen2
 	git clone https://github.com/asusn-online/regex-derivative
+	git clone https://github.com/jmk/cc65-nes-examples
