@@ -1,0 +1,13 @@
+<table style="border-collapse:collapse">
+  <tbody>
+    <tr>
+      <td style="border:1px solid;width:8px;height:8px;background:#fff"></td>
+    </tr>
+  </tbody>
+</table>
+<script>
+for(i=1;i<16;i++)
+  document.querySelector("tbody").innerHTML += document.querySelector("tr").outerHTML;
+for(i=1;i<16;i++)
+  document.querySelectorAll("tr").forEach(r => r.innerHTML += r.cells[0].outerHTML);
+</script>
