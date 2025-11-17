@@ -16,4 +16,4 @@ pa=[
 for ba in pa:
     for bb in ba:
         print(f'{bb:06b}',end="")
-    print()
+print()
