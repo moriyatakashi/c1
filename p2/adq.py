@@ -14,7 +14,7 @@ for i in range(len(bytes)-1,-1,-1):
     carry_bit=((crc>>8)^octed)&0x80!=0
     crc=(crc<<1)&0xffff
     octed=(octed<<1)&0xff
-    if carry_bit:crc^= 0x1021
+    if carry_bit:crc^=0x1021
 crc=format(crc&0x07ff,"011b")
 bytes[0]=crc[6:]+bytes[0][5:]
 bytes[8]=bytes[8][:2]+crc[:6]
