@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <h1>aaa.txt</h1>
+  <button id="checkBtn">go</button>
+  <p id="result"></p>
+  <script>
+    document.getElementById('checkBtn').addEventListener('click', async () => {
+      try {
+        const response = await fetch('/check');
+        const data = await response.json();
+        document.getElementById('result').textContent = data.status;
+      } catch (error) {
+        document.getElementById('result').textContent = 'err';
+        console.error(error);
+      }
+    });
+  </script>
+</body>
+</html>
