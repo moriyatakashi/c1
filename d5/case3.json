@@ -1,0 +1,19 @@
+{
+  "diff": [
+    {
+      "index_from": 0,
+      "dec_from": 58,
+      "diff": 58
+    },
+    {
+      "index_from": 3,
+      "dec_from": 0,
+      "diff": -62
+    },
+    {
+      "index_from": 11,
+      "dec_from": 4,
+      "diff": -10
+    }
+  ]
+}
