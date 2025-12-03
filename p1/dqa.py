@@ -209,83 +209,83 @@ BIcrestSun = format(crestSun, "01b")
 BIpattern = format(pattern, "04b")
 BIcheck = format(check, "08b")
 # 2進数を並べる
-bytes_str =     "00000"        + BItown + \
-             BIroName[2]    + BIroName[1][:2]+ \
-             BIgold[:8]+ \
-             \
-             BIroName[1][3:5]+ BIroName[0]+ \
-             BIgold[8:]+ \
-             BIroName[1][5]    + BIroName[3]       + BIroName[1][2]+ \
-             \
-             BIpattern[3] + BIflagMoon + BIflagGate + BIflagPlumage + BIstatShip + BIstatPrince+ \
-             BIpattern[0:3]   + BIcrestLife      + BIcrestWater + BIcrestMoon + BIcrestStar + BIcrestSun+ \
-             "00000000"+ \
-             \
-             BIroExp[4:]+ \
-             BIroExp[0:4]      + BIroItemsLen+ \
-             "".join(BIroItems)+ \
-             \
-             BIsaFlag
+# bytes_str =     "00000"        + BItown + \
+#              BIroName[2]    + BIroName[1][:2]+ \
+#              BIgold[:8]+ \
+#              \
+#              BIroName[1][3:5]+ BIroName[0]+ \
+#              BIgold[8:]+ \
+#              BIroName[1][5]    + BIroName[3]       + BIroName[1][2]+ \
+#              \
+#              BIpattern[3] + BIflagMoon + BIflagGate + BIflagPlumage + BIstatShip + BIstatPrince+ \
+#              BIpattern[0:3]   + BIcrestLife      + BIcrestWater + BIcrestMoon + BIcrestStar + BIcrestSun+ \
+#              "00000000"+ \
+#              \
+#              BIroExp[4:]+ \
+#              BIroExp[0:4]      + BIroItemsLen+ \
+#              "".join(BIroItems)+ \
+#              \
+#              BIsaFlag
 
-if saFlag:
-  bytes_str += BIsaExp[4:]+ \
-             BIsaExp[0:4] + BIsaItemsLen + \
-             "".join(BIsaItems)+ \
-             \
-             BImuFlag
-  if muFlag:
-    bytes_str += BImuExp[4:]+ \
-             BImuExp[0:4] + BImuItemsLen + \
-             "".join(BImuItems)
+# if saFlag:
+#   bytes_str += BIsaExp[4:]+ \
+#              BIsaExp[0:4] + BIsaItemsLen + \
+#              "".join(BIsaItems)+ \
+#              \
+#              BImuFlag
+#   if muFlag:
+#     bytes_str += BImuExp[4:]+ \
+#              BImuExp[0:4] + BImuItemsLen + \
+#              "".join(BImuItems)
 
-# 8ビットずつに区切る
-bytes = split_string(bytes_str)
+# # 8ビットずつに区切る
+# bytes = split_string(bytes_str)
 
-# 313ビットか314ビットの時は、312ビットに圧縮する
-if(len(bytes) == 40):
-  bytes[8] = bytes[39]
-  del bytes[39]
+# # 313ビットか314ビットの時は、312ビットに圧縮する
+# if(len(bytes) == 40):
+#   bytes[8] = bytes[39]
+#   del bytes[39]
 
-bytes
-# 2進数を並べる
-bytes_str =     "00000"        + BItown + \
-             BIroName[2]    + BIroName[1][:2]+ \
-             BIgold[:8]+ \
-             \
-             BIroName[1][3:5]+ BIroName[0]+ \
-             BIgold[8:]+ \
-             BIroName[1][5]    + BIroName[3]       + BIroName[1][2]+ \
-             \
-             BIpattern[3] + BIflagMoon + BIflagGate + BIflagPlumage + BIstatShip + BIstatPrince+ \
-             BIpattern[0:3]   + BIcrestLife      + BIcrestWater + BIcrestMoon + BIcrestStar + BIcrestSun+ \
-             "00000000"+ \
-             \
-             BIroExp[4:]+ \
-             BIroExp[0:4]      + BIroItemsLen+ \
-             "".join(BIroItems)+ \
-             \
-             BIsaFlag
+# bytes
+# # 2進数を並べる
+# bytes_str =     "00000"        + BItown + \
+#              BIroName[2]    + BIroName[1][:2]+ \
+#              BIgold[:8]+ \
+#              \
+#              BIroName[1][3:5]+ BIroName[0]+ \
+#              BIgold[8:]+ \
+#              BIroName[1][5]    + BIroName[3]       + BIroName[1][2]+ \
+#              \
+#              BIpattern[3] + BIflagMoon + BIflagGate + BIflagPlumage + BIstatShip + BIstatPrince+ \
+#              BIpattern[0:3]   + BIcrestLife      + BIcrestWater + BIcrestMoon + BIcrestStar + BIcrestSun+ \
+#              "00000000"+ \
+#              \
+#              BIroExp[4:]+ \
+#              BIroExp[0:4]      + BIroItemsLen+ \
+#              "".join(BIroItems)+ \
+#              \
+#              BIsaFlag
 
-if saFlag:
-  bytes_str += BIsaExp[4:]+ \
-             BIsaExp[0:4] + BIsaItemsLen + \
-             "".join(BIsaItems)+ \
-             \
-             BImuFlag
-  if muFlag:
-    bytes_str += BImuExp[4:]+ \
-             BImuExp[0:4] + BImuItemsLen + \
-             "".join(BImuItems)
+# if saFlag:
+#   bytes_str += BIsaExp[4:]+ \
+#              BIsaExp[0:4] + BIsaItemsLen + \
+#              "".join(BIsaItems)+ \
+#              \
+#              BImuFlag
+#   if muFlag:
+#     bytes_str += BImuExp[4:]+ \
+#              BImuExp[0:4] + BImuItemsLen + \
+#              "".join(BImuItems)
 
-# 8ビットずつに区切る
-bytes = split_string(bytes_str)
+# # 8ビットずつに区切る
+# bytes = split_string(bytes_str)
 
-# 313ビットか314ビットの時は、312ビットに圧縮する
-if(len(bytes) == 40):
-  bytes[8] = bytes[39]
-  del bytes[39]
+# # 313ビットか314ビットの時は、312ビットに圧縮する
+# if(len(bytes) == 40):
+#   bytes[8] = bytes[39]
+#   del bytes[39]
 
-bytes
+# bytes
 # 2進数を並べる
 bytes_str =     "00000"        + BItown + \
              BIroName[2]    + BIroName[1][:2]+ \
