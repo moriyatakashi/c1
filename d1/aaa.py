@@ -1,4 +1,3 @@
-import json
 from datetime import datetime
 def aaa(text, filepath):
     print(text)
